@@ -107,10 +107,34 @@ def load_camnames(path: Text) -> Union[List, None]:
     label_3d_file = sio.loadmat(path)
     if "camnames" in label_3d_file:
         names = label_3d_file["camnames"][:]
+        # Sophie and Sihan editted 
+        if "labelData" not in label_3d_file:
+            camnames = [name[0] for name in names[0]]
+        #####        
+        elif len(names) != len(label_3d_file["labelData"]):
+            camnames = [name[0] for name in names[0]]
+        else:
+            camnames = [name[0][0] for name in names]
+    else:
+        camnames = None
+        
+    return camnames
+
+"""
+original code
+    label_3d_file = sio.loadmat(path)
+    if "camnames" in label_3d_file:
+        names = label_3d_file["camnames"][:]
         if len(names) != len(label_3d_file["labelData"]):
             camnames = [name[0] for name in names[0]]
         else:
             camnames = [name[0][0] for name in names]
     else:
         camnames = None
-    return camnames
+"""
+
+
+
+
+
+

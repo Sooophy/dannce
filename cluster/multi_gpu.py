@@ -15,7 +15,9 @@ from dannce import (
 import scipy.io as spio
 from typing import Dict, List, Text
 
-DANNCE_BASE_NAME = "save_data_AVG"
+# need to change to AVG if using AVG
+DANNCE_BASE_NAME = "save_data_MAX"
+# DANNCE_BASE_NAME = "save_data_AVG"
 COM_BASE_NAME = "com3d"
 
 
@@ -354,7 +356,8 @@ class MultiGpuHandler:
             if len(pred_files) > 1:
                 params = load_params(self.config)
                 pred_ids = [
-                    int(f.split(".")[0].split("AVG")[1]) * params["batch_size"]
+                    # need to change to AVG if using AVG, MAX if using MAX
+                    int(f.split(".")[0].split(DANNCE_BASE_NAME[-3:])[1]) * params["batch_size"]
                     for f in pred_files
                 ]
                 for i, batch_param in reversed(list(enumerate(batch_params))):
@@ -393,7 +396,9 @@ class MultiGpuHandler:
         if len(pred_files) > 1:
             params = load_params(self.config)
             pred_ids = [
-                int(f.split(".")[0].split("AVG")[1]) * params["batch_size"]
+                # choose from MAX and AVG
+                # int(f.split(".")[0].split("AVG")[1]) * params["batch_size"]
+                int(f.split(".")[0].split(DANNCE_BASE_NAME[-3:])[1]) * params["batch_size"]
                 for f in pred_files
             ]
             for i, batch_param in reversed(list(enumerate(batch_params))):
@@ -427,7 +432,9 @@ class MultiGpuHandler:
         slurm_config = load_params(load_params(self.config)["slurm_config"])
 
         cmd = (
-            'sbatch --wait --array=0-%d %s --wrap="%s dannce-predict-single-batch %s"'
+            # 'sbatch --wait --array=0-%d %s --wrap="%s dannce-predict-single-batch %s"'
+            #  sophie changed
+            'sbatch --array=0-%d %s --wrap="%s dannce-predict-single-batch %s"'
             % (
                 len(batch_params) - 1,
                 slurm_config["dannce_multi_predict"],
@@ -452,7 +459,9 @@ class MultiGpuHandler:
         batch_params = self.generate_batch_params_com(n_samples)
         slurm_config = load_params(load_params(self.config)["slurm_config"])
         cmd = (
-            'sbatch --wait --array=0-%d %s --wrap="%s com-predict-single-batch %s"'
+            # 'sbatch --wait --array=0-%d %s --wrap="%s com-predict-single-batch %s"'
+            # sophie_changed 
+            'sbatch --array=0-%d %s --wrap="%s com-predict-single-batch %s"'
             % (
                 len(batch_params) - 1,
                 slurm_config["com_multi_predict"],

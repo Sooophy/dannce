@@ -585,6 +585,7 @@ def finetune_fullmodel_AVG(
                     "mask_nan_l1_loss": losses.mask_nan_l1_loss,
                     "euclidean_distance_3D": losses.euclidean_distance_3D,
                     "centered_euclidean_distance_3D": losses.centered_euclidean_distance_3D,
+                    "gaussian_cross_entropy_loss": losses.gaussian_cross_entropy_loss,
                 },
                 compile=False,
             )
