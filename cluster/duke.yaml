@@ -21,5 +21,5 @@ com_multi_predict: "--job-name=predictCom -p scavenger-gpu --mem=10000 -t 0-03:0
 # Setup functions (optional, set to "" if no setup is required. Trailing ; is required)
 #setup: ". ~/.bashrc; conda activate dannce_tf26;"
 #setup: ". ~/.bashrc; conda activate dannce_release;"
-setup: ". ~/.bashrc; conda activate dannce_release;"
+setup: ". ~/.bashrc; conda activate dannce_stroke;"
 
