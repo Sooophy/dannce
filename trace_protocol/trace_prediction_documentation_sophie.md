@@ -50,11 +50,11 @@ Put all the files in this folder into your base folder.
 5. Put the dates that outputed date in `AprilTag2` from step3, and put them in `new_params_dates`. If there are only `AprilTag` folders in last step, put `new_params_dates = ["00000000"]`
 
 6. In command window, input line by line: 
-```
-source ~/.bashrc
-conda activate dannce_stroke
-python sophie_organize_project_folder.py
-```
+    ```
+    source ~/.bashrc
+    conda activate dannce_stroke
+    python sophie_organize_project_folder.py
+    ```
 
 If there is `AprilTag3` folders printed out in step3, please reach out to us.
 
@@ -120,18 +120,21 @@ If there is `AprilTag3` folders printed out in step3, please reach out to us.
 3. Change the `date_ls` in `sophie_check_all_com_velocity.py` the dates you want to predict com on. make sure `save_path = base_path +'/com_check'`
 
 4. In command window, input line by line: 
-```
-source ~/.bashrc
-conda activate dannce_stroke
-python sophie_check_all_com_velocity.py
-```
+    ```
+    source ~/.bashrc
+    conda activate dannce_stroke
+    python sophie_check_all_com_velocity.py
+    ```
 Skip the first 2 lines if youare already in the `dannce_stroke` environment
 
 5. Go into the `base_path/com_check` folder, check the visualization of com trace, make sure they all look reasonable.
 
 Good example
+
 ![Good Example com](20230503_d-1_c1_m1.jpg "Good example")
+
 Bad example
+
 ![Bad Example com](20230508_d4_c1_m1_cylinder.jpg "Bad example")
 
 ## DANNCE Validation
@@ -154,7 +157,9 @@ Skip the first 2 lines if youare already in the `dannce_stroke` environment
 5. Go into the `base_path/check_seg_length_twd5` folder, check the visualization of segment length, make sure they all look reasonable.
 
 Good example
+
 ![Good Example dannce](20220414_d-1_c1_m1.jpg "Good example")
 
 Bad example:
+
 ![Bad Example dannce](20220419_d4_c1_m4.jpg "Bad example")
