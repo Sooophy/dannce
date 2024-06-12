@@ -38,5 +38,5 @@ crop_width: [0, 1152]
 
 data_split_seed: 35
 
-slurm_config: /hpc/group/tdunn/sophieshi/dannce_release/dannce/cluster/duke.yaml
+slurm_config: /hpc/group/seguralab/nvp7/dannce/cluster/duke.yaml
 

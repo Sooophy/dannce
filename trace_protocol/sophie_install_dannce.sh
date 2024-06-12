@@ -1,7 +1,8 @@
 ###### Install Miniconda ######
-yourdirectory="desiredDirectoryName"
-mkdir -p /hpc/group/seguralab/"$yourdirectory"
+yourdirectory="desiredDirectoryName"  # change the name to your folder here, you should manually created this folder already
+# mkdir -p /hpc/group/seguralab/"$yourdirectory"
 # Download and install a specific version of Miniconda: Miniconda3-py37_4.10.3
+cd /hpc/group/seguralab/"$yourdirectory"
 echo "Installing Miniconda version 4.10.3..."
 wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.10.3-Linux-x86_64.sh 
 sh Miniconda3-py37_4.10.3-Linux-x86_64.sh
