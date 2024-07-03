@@ -53,7 +53,7 @@ do
 
             # total_frames=30000  # not going to work iin a function
 
-            matlab -batch "clear; addpath('/hpc/group/tdunn/segura-behavior/KE5-7A-1_Aged_female_mice'); total_frames='$total_frames'; params_path = '$params_path'; out_path = '$big_path'; transferParams(params_path,params_path,out_path,22)"
+            matlab -batch "clear; addpath('$base_path'); total_frames='$total_frames'; params_path = '$params_path'; out_path = '$big_path'; transferParams(params_path,params_path,out_path,22)"
     
             # Go back to the base_path
             cd "$base_path"

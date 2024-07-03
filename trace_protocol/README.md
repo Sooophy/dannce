@@ -26,7 +26,7 @@ Please refer to the above example structure for the following content.
 The `base_folder` means the `experiment` folder path.
 
 
-**PLEASE READ:**
+**IMPORTANT, LEASE READ:**
 "Prepare files" means you should download listed file from the GitHub, and drag the file into the `experiment` folder
 
 "input" means copy+paste the code line into the terminal window
@@ -34,6 +34,11 @@ The `base_folder` means the `experiment` folder path.
 All the setting is for 5 min video recordings. If you have a different setting, please reach out to the tdunn lab members.
 
 All the modification of the variable in the script should follow the **exact same format** with the given example. That is, if the path has a "/" at the end, you should have a "/" at the end after modification, if it doesn't then you shuouldn't.
+
+After running the `.sh` file, there will be a `.out` file with the same name that has the output of the bash file. Look for the file under the same path to see the result and debug.
+
+You should be at your `experiment` folder when running all the code below. Todo that, after opening a new terminal, input
+`cd /hpc/group/seguralab/your_netid_folder/your_experiment_folder`
 
 ## Running Dannce for the first time 
 If you have never run dannce before, please follow the following staps to set up your environment.
@@ -61,13 +66,14 @@ If you have run dannce before, please follow the following steps to process you 
 
 ### Camera Prameters Conversion
 
+
 1. Prepare files
 
     - [transferParams.m](https://github.com/Sooophy/dannce/blob/stroke_analysis/trace_protocol/transferParams.m)
 
     - [sophie_transfer_params.sh](https://github.com/Sooophy/dannce/blob/stroke_analysis/trace_protocol/sophie_transfer_params.sh)
 
-2. change the `date_list` in `sophie_transfer_params.sh` in `sophie_transfer_params.sh` to disired dates in your data.
+2. change the `date_list`  and `base_path` in `sophie_transfer_params.sh` to disired dates in your data.
 
 3. In terminal: `sbatch sophie_transfer_params.sh`
 
@@ -86,6 +92,19 @@ If you have run dannce before, please follow the following steps to process you 
 4. change the `base_path` in `sophie_organize_project_folder.py` to your experiment folder.
 
 5. In `sophie_transfer_params.sh`, put the dates that outputed date in `AprilTag2` from step3 in `sophie_transfer_params.sh`. If there are only `AprilTag` folders in last step, put `new_params_dates = ["00000000"]`
+    
+    For example, if you see 
+    ```
+    20230501_AprilTag2
+    20230501_AprilTAg
+    ```
+    You should put `new_params_dates = ["20230501"]`
+
+    if you see 
+    ```
+    20230501_AprilTag
+    ```
+    You should put `new_params_dates = ["00000000"]`
 
 6. In command window, input line by line: 
     ```
@@ -110,7 +129,7 @@ If there is `AprilTag3` folders printed out in step3, please reach out to us.
 
 4. In command window, `sbatch sophie_predict_all_com.sh`
 
-5. Check the result in `sophie_predict_all_com.out` produced in the base folder, You should see `30000` on all project folders. If you see any number that is less than `30000`, redo this step5 until all the numbers are `30000`. This is because some GPU is not compatible with dannce.
+5. Check the result in `sophie_predict_all_com.out` produced in the base folder, You should see `30000` on all project folders. If you see any number that is less than `30000`, redo this step4 until all the numbers are `30000`. This is because some GPU is not compatible with dannce.
 
 6. If there is a folder that cannot reach the number no matter what, then please double check the video in that folder. If you cannot fix the video, add "#" to that folder name so it will be skipped in later analysis.
 
