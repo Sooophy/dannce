@@ -18,7 +18,7 @@ base_path = '/hpc/group/tdunn/segura-behavior/KE5-7A-1_Aged_female_mice' # The b
 params_file_end = '_label3d_dannce.mat' # The camera param file inside of AprilTag folder
 filelist = os.listdir(base_path)
 expected_frame_num = 30000 # expected frame number of com file, 30000 for 5min 100fps on default
-save_path = base_path +'/com_check'
+save_path = base_path +'/com_check/'
 # Check if the savePath exists
 if not os.path.exists(save_path):
     os.makedirs(save_path)
