@@ -35,8 +35,8 @@ for filename in filelist:
          
          if "#" in filename:
             continue
-         if filename == '20230505_w1_c6_m4':
-        #  if date in filename and 'AprilTag' not in filename:
+        #  if filename == '20230505_w1_c6_m4':  # for checking specific folder
+         if date in filename and 'AprilTag' not in filename:  # for checking all the folders
             print(filename, ": start analyzing")
             temp_path = base_path + '/' + filename + '/COM/predict_results/com3d.mat'
             try:
