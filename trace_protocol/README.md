@@ -186,6 +186,8 @@ Skip the first 2 lines if youare already in the `dannce_stroke` environment
 
 5. Go into the `base_path/com_check` folder, check the visualization of com trace, make sure they all look reasonable.
 
+Theortically the result shouldn't have small waves on the tails after 5 mm/frames
+
 Good example
 
 ![Good Example com](20230503_d-1_c1_m1.jpg "Good example")

@@ -45,7 +45,7 @@ if __name__ == '__main__':
     
     base_path = '/hpc/group/tdunn/segura-behavior/KE5-3A-1_DANNCE_2-0' # path containing all the folder.
     save_path = base_path + '/check_seg_length_twd5/' # path that will save the results
-    pred_mat = 'smoothed_prediction_twd5_nomedfilt.mat' # name of the prediction result
+    pred_mat = 'smoothed_prediction_twd5_medfilt5.mat' # name of the prediction result, change accordingly
 
     # params_file_end = 'big_label3d_dannce.mat' # camera parameters
     # Check if the savePath exists
